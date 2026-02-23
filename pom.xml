@@ -21,6 +21,8 @@
 		<sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
 		<sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
 		<sonar.jacoco.reportPath>${project.basedir}/target/jacoco.exec</sonar.jacoco.reportPath>
+		<!-- Modern Sonar property for JaCoCo XML reports (Sonar 7.9+/8+): -->
+		<sonar.coverage.jacoco.xmlReportPaths>${project.basedir}/target/site/jacoco/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
 	</properties>
 
 	<dependencies>
@@ -71,6 +73,14 @@
 					<execution>
 						<goals>
 							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+					<!-- bind report generation to verify so CI builds produce the XML automatically -->
+					<execution>
+						<id>report</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>report</goal>
 						</goals>
 					</execution>
 				</executions>
