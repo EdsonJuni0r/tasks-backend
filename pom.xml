@@ -17,11 +17,11 @@
 	<description>A very simple task management tool</description>
 
 	<properties>
-		<java.version>1.8</java.version>
-		<sonar.host.url>http://localhost:9000</sonar.host.url>
-		<sonar.token>sqp_eca5c1bd856973a7d1e9b9e67f83998525f2b283</sonar.token>
-		<sonar.projectKey>DeployBackend</sonar.projectKey>
-		<sonar.projectName>'DeployBackend'</sonar.projectName>
+		<!--<java.version>1.8</java.version>
+		<sonar.host.url>local</sonar.host.url>
+		<sonar.token>token</sonar.token>
+		<sonar.projectKey>key</sonar.projectKey>
+		<sonar.projectName>'name'</sonar.projectName>-->
 		<sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
 		<sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
 		<sonar.jacoco.reportPath>${project.basedir}/target/jacoco.exec</sonar.jacoco.reportPath>
