@@ -2,9 +2,9 @@ package br.ce.wcaquino.taskbackend.controller;
 
 import java.time.LocalDate;
 
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
@@ -22,9 +22,9 @@ public class TaskControllerTest {
 	@InjectMocks
 	private TaskController controller;
 	
-	@Before
+	@BeforeEach
 	public void setup() {
-		MockitoAnnotations.initMocks(this);
+		MockitoAnnotations.openMocks(this);
 	}
 	
 	@Test
@@ -33,9 +33,9 @@ public class TaskControllerTest {
 		todo.setDueDate(LocalDate.now());
 		try {
 			controller.save(todo);
-			Assert.fail("Não deveria chegar nesse ponto!");
+			Assertions.fail("Não deveria chegar nesse ponto!");
 		} catch (ValidationException e) {
-			Assert.assertEquals("Fill the task description", e.getMessage());
+			Assertions.assertEquals("Fill the task description", e.getMessage());
 		}
 	}
 	
@@ -45,9 +45,9 @@ public class TaskControllerTest {
 		todo.setTask("Descricao");
 		try {
 			controller.save(todo);
-			Assert.fail("Não deveria chegar nesse ponto!");
+			Assertions.fail("Não deveria chegar nesse ponto!");
 		} catch (ValidationException e) {
-			Assert.assertEquals("Fill the due date", e.getMessage());
+			Assertions.assertEquals("Fill the due date", e.getMessage());
 		}
 	}
 	
@@ -58,9 +58,9 @@ public class TaskControllerTest {
 		todo.setDueDate(LocalDate.of(2020, 01 ,01));
 		try {
 			controller.save(todo);
-			Assert.fail("Não deveria chegar nesse ponto!");
+			Assertions.fail("Não deveria chegar nesse ponto!");
 		} catch (ValidationException e) {
-			Assert.assertEquals("Due date must not be in past", e.getMessage());
+			Assertions.assertEquals("Due date must not be in past", e.getMessage());
 		}
 	}
 	
